@@ -1,0 +1,10 @@
+{
+  "name": "@reede/otel",
+  "version": "0.1.0",
+  "description": "Options for an OpenTelemetry OTLP exporter pointed at Reede (reede serve). Nothing more.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "index.js",
+  "files": ["index.js"],
+  "scripts": { "test": "node --test test/*.test.js" }
+}
