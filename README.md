@@ -39,6 +39,24 @@ const { endpoint, headers } = reedeOtel();   // { endpoint, token } optional
 Returns `{ endpoint, headers }` for any OTLP/HTTP exporter. `endpoint` is a base URL; exporters
 append `/v1/traces`.
 
+## Guard (npm): ask Reede before a tool runs (opt-in)
+
+Reede answers `POST {endpoint}/api/v1/reede/check` with `allow`, `deny` or `needs_approval`.
+The guard calls it before the tool runs and throws `ReedeDenied` unless the answer is `allow`.
+
+```js
+import { withReedeGuard, check, ReedeDenied } from '@reede/otel';
+const tool = withReedeGuard(myMastraTool);   // wraps tool.execute; the original is untouched
+// or, for any call: await check('send_email', { kind: 'tool', args: { to } });
+```
+
+`ReedeDenied` carries `decision`, `reason`, `approvalId` and `receiptId`. Options: `kind`,
+`targetHost`, `estCredits`, `endpoint`, `headers`, `timeout` (seconds, default 5), `name`.
+
+**Fail closed by design.** A network error, a timeout, a non-2xx response or an unreadable answer
+throws `ReedeDenied` with `decision: 'deny'` and `reason: 'check unavailable: ...'`. The tool does
+not run. Reede being down stops the tool; it never lets it through.
+
 ## Tests
 
 ```text

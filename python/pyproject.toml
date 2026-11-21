@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reede-otel"
-version = "0.8.0"
+version = "0.9.0"
 description = "Configure an OpenTelemetry exporter for Reede (reede serve). Nothing more."
 readme = "README.md"
 # SPDX expression: setuptools>=77 rejects a "License ::" classifier alongside it, so none is listed.

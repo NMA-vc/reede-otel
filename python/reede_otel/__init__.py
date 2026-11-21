@@ -22,3 +22,9 @@ def configure(endpoint=None, token=None):
     os.environ.setdefault("LANGSMITH_TRACING", "true")
     os.environ.setdefault("LANGSMITH_TRACING_MODE", "otel")
     return endpoint
+
+
+# Imported last: guard.py reads DEFAULT_ENDPOINT from this package.
+from .guard import ReedeDenied, check, guard, guard_langchain_tool  # noqa: E402
+
+__all__ = ["configure", "check", "guard", "guard_langchain_tool", "ReedeDenied", "DEFAULT_ENDPOINT"]

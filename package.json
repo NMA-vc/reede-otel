@@ -1,6 +1,6 @@
 {
   "name": "@reede/otel",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Options for an OpenTelemetry OTLP exporter pointed at Reede (reede serve). Nothing more.",
   "license": "Apache-2.0",
   "author": "NMA Venture Capital GmbH",
