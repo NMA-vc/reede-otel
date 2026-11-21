@@ -1,13 +1,38 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "reede-otel"
-version = "0.1.0"
+version = "0.8.0"
 description = "Configure an OpenTelemetry exporter for Reede (reede serve). Nothing more."
-license = { text = "Apache-2.0" }
+readme = "README.md"
+# SPDX expression: setuptools>=77 rejects a "License ::" classifier alongside it, so none is listed.
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 requires-python = ">=3.9"
+authors = [{ name = "NMA Venture Capital GmbH" }]
+maintainers = [{ name = "NMA Venture Capital GmbH" }]
+keywords = ["opentelemetry", "otel", "otlp", "tracing", "observability", "reede", "langsmith", "langchain"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: System :: Monitoring",
+]
+
+[project.urls]
+Homepage = "https://github.com/NMA-vc/reede-otel"
+Repository = "https://github.com/NMA-vc/reede-otel"
+Issues = "https://github.com/NMA-vc/reede-otel/issues"
 
 [tool.setuptools]
 packages = ["reede_otel"]
